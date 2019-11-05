@@ -28,35 +28,19 @@
       }
     },
     methods: {
-      // handleLogin() {
-      //   this.$http.post('login', this.formdata)
-      //     .then(res => {
-      //       console.log(res)
-      //       const data = res.data
-      //       const {meta: {status, msg}} = data
-      //       if (status === 200) {
-      //         const token = data.data.token
-      //         sessionStorage.setItem('token', token)
-      //         this.$message.success(msg)
-      //       } else {
-      //         this.$message.error(msg)
-      //       }
-      //
-      //     })
-      // }
-
       async handleLogin() {
         const res = await this.$http.post('login', this.formdata)
-            console.log(res)
-            const data = res.data
-            const {meta: {status, msg}} = data
-            if (status === 200) {
-              const token = data.data.token
-              sessionStorage.setItem('token', token)
-              this.$message.success(msg)
-            } else {
-              this.$message.error(msg)
-            }
+        console.log(res)
+        const data = res.data
+        const {meta: {status, msg}} = data
+        if (status === 200) {
+          const token = data.data.token
+          sessionStorage.setItem('token', token)
+          this.$message.success(msg)
+          this.$router.push({name: 'home'})
+        } else {
+          this.$message.error(msg)
+        }
       }
     }
   }
