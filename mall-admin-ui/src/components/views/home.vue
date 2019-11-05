@@ -34,7 +34,7 @@
               <span>用户管理</span>
             </template>
             <el-menu-item index="/user">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-menu"></i>
               用户列表
             </el-menu-item>
           </el-submenu>
@@ -50,7 +50,7 @@
               角色列表
             </el-menu-item>
             <el-menu-item index="/rights">
-              <i class="el-icon-view"></i>
+              <i class="el-icon-menu"></i>
               权限列表
             </el-menu-item>
           </el-submenu>
@@ -66,11 +66,11 @@
               商品列表
             </el-menu-item>
             <el-menu-item index="3-1">
-              <i class="el-icon-view"></i>
+              <i class="el-icon-menu"></i>
               分类参数
             </el-menu-item>
             <el-menu-item index="3-1">
-              <i class="el-icon-view"></i>
+              <i class="el-icon-menu"></i>
               商品分类
             </el-menu-item>
           </el-submenu>
@@ -82,7 +82,7 @@
               <span>订单管理</span>
             </template>
             <el-menu-item index="4-1">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-menu"></i>
               订单列表
             </el-menu-item>
           </el-submenu>
@@ -94,13 +94,16 @@
               <span>数据统计</span>
             </template>
             <el-menu-item index="5-1">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-menu"></i>
               数据报表
             </el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
-      <el-main class="main">Main</el-main>
+      <el-main class="main">
+        <!--视图容器-->
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
