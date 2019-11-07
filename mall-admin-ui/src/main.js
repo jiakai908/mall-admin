@@ -9,10 +9,16 @@ import '@/assets/css/reset.css'
 import HttpServer from '@/plugins/http.js'
 
 Vue.config.productionTip = false
+import moment from 'moment'
 
 Vue.use(ElementUI)
 Vue.use(HttpServer)
 
+//全局过滤器
+//格式化日期
+Vue.filter('fmtDate', (value, fmtString) => {
+  return moment(value).format(fmtString)
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
