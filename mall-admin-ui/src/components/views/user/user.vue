@@ -194,9 +194,6 @@
       async loadData() {
         this.loading = true
         const res = await this.$http.get('users', {
-          headers: {
-            Authorization: window.sessionStorage.getItem('token')
-          },
           params: {
             pagenum: this.pagenum,
             pagesize: this.pagesize,
@@ -227,8 +224,6 @@
         this.loadData()
       },
       async handleSwitchChange(user) {
-        this.$http.defaults.headers.common['Authorization'] =
-          sessionStorage.getItem('token')
         const res = await this.$http.put(
           `users/${user.id}/state/${user.mg_state}`
         )
@@ -241,8 +236,6 @@
         }
       },
       handleDelete(id) {
-        this.$http.defaults.headers.common['Authorization'] =
-          sessionStorage.getItem('token')
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -280,8 +273,6 @@
           if (!valid) {
             this.$message.error('请重新输入')
           } else {
-            this.$http.defaults.headers.common['Authorization'] =
-              sessionStorage.getItem('token')
             const res = await this.$http.post('users', this.formData)
             const data = res.data
             const {meta: {status, msg}} = data
@@ -308,8 +299,6 @@
           if (!valid) {
             this.$message.error("请重新输入")
           } else {
-            this.$http.defaults.headers.common['Authorization'] =
-              sessionStorage.getItem('token')
             const res = await this.$http.put(`users/${this.formData.id}`, {
               mobile: this.formData.mobile,
               email: this.formData.email
@@ -330,17 +319,12 @@
         this.currentUserId = user.id
         this.currentName = user.username
         this.setRoleDialogFormVisible = true
-        this.$http.defaults.headers.common['Authorization'] =
-          sessionStorage.getItem('token')
         const res = await this.$http.get('roles')
         this.roles = res.data.data
         const res1 = await this.$http.get(`users/${user.id}`)
         this.currentRoleId = res1.data.data.rid
       },
       async handleSetRole() {
-        this.$http.defaults.headers.common['Authorization'] =
-          sessionStorage.getItem('token')
-
         const res = await this.$http.put(`users/${this.currentUserId}/role`, {
           rid: this.currentRoleId
         })
