@@ -4,10 +4,12 @@ import Login from '@/components/views/login'
 import Home from '@/components/views/home'
 import User from '@/components/views/user/user'
 import Right from '@/components/views/roles/right'
+import Role from '@/components/views/roles/role'
+import {Message} from 'element-ui'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       name: 'home',
@@ -16,13 +18,18 @@ export default new Router({
       children: [
         {
           name: 'user',
-          path: '/user',
+          path: '/users',
           component: User
         },
         {
           name: 'right',
-          path: '/right',
+          path: '/rights',
           component: Right
+        },
+        {
+          name: 'role',
+          path: '/roles',
+          component: Role
         }
       ]
     },
@@ -31,6 +38,21 @@ export default new Router({
       path: '/login',
       component: Login
     }
-
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  console.log(to, from)
+  if (to.name === 'login') {
+    next()
+  } else {
+    const token = sessionStorage.getItem('token')
+    if (!token) {
+      router.push({'name': 'login'})
+      Message.warning('请先登录')
+    }
+    next()
+  }
+})
+
+export default router

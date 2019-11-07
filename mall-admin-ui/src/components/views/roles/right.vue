@@ -1,11 +1,6 @@
 <template>
   <el-card class="box-card">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{path:'/'}">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-      <el-breadcrumb-item>权限列表</el-breadcrumb-item>
-    </el-breadcrumb>
-
+    <cus-Breadcrumb level1='权限管理' level2='权限列表'></cus-Breadcrumb>
     <!--表格-->
     <el-table
       class="td"

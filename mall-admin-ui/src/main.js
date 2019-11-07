@@ -7,12 +7,14 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/reset.css'
 import HttpServer from '@/plugins/http.js'
-
+import CusBreadCrumb from '@/components/common/cusBreadcrumb'
 Vue.config.productionTip = false
 import moment from 'moment'
 
 Vue.use(ElementUI)
 Vue.use(HttpServer)
+
+Vue.component(CusBreadCrumb.name,CusBreadCrumb)
 
 //全局过滤器
 //格式化日期
