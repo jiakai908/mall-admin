@@ -101,7 +101,6 @@
             query: this.searchValue
           }
         })
-        console.log(resData.data.goods)
         this.loading = false
         this.total = resData.data.total
         this.list = resData.data.goods

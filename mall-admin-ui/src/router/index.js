@@ -7,6 +7,7 @@ import Right from '@/components/views/roles/right'
 import Role from '@/components/views/roles/role'
 import GoodList from '@/components/views/goods/goodlist'
 import GoodAdd from '@/components/views/goods/goodadd'
+import Categories from '@/components/views/goods/categories'
 import {Message} from 'element-ui'
 
 Vue.use(Router)
@@ -43,6 +44,11 @@ const router = new Router({
           path: '/goodadd',
           component: GoodAdd
         },
+        {
+          name: 'categories',
+          path: '/categories',
+          component: Categories
+        }
       ]
     },
     {
@@ -54,7 +60,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from)
   if (to.name === 'login') {
     next()
   } else {
