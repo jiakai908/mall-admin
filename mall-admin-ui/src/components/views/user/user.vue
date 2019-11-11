@@ -317,7 +317,7 @@
       },
       async handleShowRole(user) {
         this.currentUserId = user.id
-        this.currentName = user.username
+        this.currentUsername = user.username
         this.setRoleDialogFormVisible = true
         const res = await this.$http.get('roles')
         this.roles = res.data.data
